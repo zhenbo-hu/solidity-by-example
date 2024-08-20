@@ -1,0 +1,5 @@
+.trunk
+.vscode
+out/
+cache/
+.DS_Store
