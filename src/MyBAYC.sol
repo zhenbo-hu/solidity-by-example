@@ -6,7 +6,7 @@ import {ERC721, ERC721URIStorage} from "@openzeppelin/contracts/token/ERC721/ext
 contract MyBAYC is ERC721, ERC721URIStorage {
     error TokenIdOutOfRange();
 
-    uint256 public MAX_APES = 10000;
+    uint256 public immutable MAX_APES = 10000;
 
     constructor(
         string memory _name,
