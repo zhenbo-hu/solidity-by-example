@@ -13,7 +13,7 @@ contract EtherWalletTest is Test {
         etherWallet = new EtherWallet();
     }
 
-    function testReceive() public {
+    function testReceiveWithSuccessful() public {
         assertEq(etherWallet.getBalance(), 0);
 
         payable(address(etherWallet)).transfer(1 ether);
@@ -21,7 +21,7 @@ contract EtherWalletTest is Test {
         assertEq(etherWallet.getBalance(), 1 ether);
     }
 
-    function testwithdraw() public {
+    function testwithdrawWithSuccessful() public {
         payable(address(etherWallet)).transfer(1 ether);
         assertEq(etherWallet.getBalance(), 1 ether);
 
