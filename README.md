@@ -4,6 +4,10 @@ Following [solidity-by-example.org](https://solidity-by-example.org), learn soli
 
 ## How to use
 
+```shell
+forge install OpenZeppelin/openzeppelin-contracts # use openzeppelin contracts
+```
+
 build your own `.env` file
 
 ```shell
@@ -19,5 +23,5 @@ forge test # run test
 
 forge coverage # see the coverage report
 
-forge script script/xxxx.s.sol --broadcast --verify -vvvv # deploy and verify via script
+forge script script/xxxx.s.sol --rpc-url $RPC_URL --etherscan-api-key $ETHERSCAN_API_KEY --broadcast --verify -vvvv # deploy and verify via script
 ```
