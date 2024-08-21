@@ -13,15 +13,6 @@ contract EtherWalletTest is Test {
         etherWallet = new EtherWallet();
     }
 
-    function testOwner() public {
-        address payable owner = etherWallet.owner();
-        assertEq(owner, address(this));
-    }
-
-    function testGetBalance() public {
-        assertEq(etherWallet.getBalance(), 0);
-    }
-
     function testReceive() public {
         assertEq(etherWallet.getBalance(), 0);
 

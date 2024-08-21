@@ -5,22 +5,20 @@ contract EtherWallet {
     error NotOwner();
     error InsufficientAmount();
 
-    address payable public owner;
+    address payable public immutable OWNER;
 
     constructor() {
-        owner = payable(msg.sender);
+        OWNER = payable(msg.sender);
     }
 
     receive() external payable {}
 
-    function withdraw(uint256 _amount) external {
-        if (msg.sender != owner)
-            revert NotOwner();
-        
-        if (address(this).balance < _amount) 
-            revert InsufficientAmount();
-        
-        payable(msg.sender).transfer(_amount);
+    function withdraw(uint256 amount_) external {
+        if (msg.sender != OWNER) revert NotOwner();
+
+        if (address(this).balance < amount_) revert InsufficientAmount();
+
+        payable(msg.sender).transfer(amount_);
     }
 
     function getBalance() external view returns (uint256) {
